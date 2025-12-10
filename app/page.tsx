@@ -1,7 +1,9 @@
+import { Metadata } from "next";
+
 export default function Page(){
   return (
     <main>
-      <section className="flex flex-col items-center justify-center h-[100svh]">
+      <section className="flex flex-col items-center justify-center h-screen">
         <div className="flex flex-row items-center mr-12">
           <img src="logo.webp" alt="" className="w-[3rem] lg:w-[4rem]" />
           <div className="ml-6">
@@ -14,4 +16,14 @@ export default function Page(){
       <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs lg:text-sm">© 2025 <a className="relative after:content-[''] after:absolute after:w-full after:h-px after:bg-black lg:after:hidden lg:hover:after:block after:bottom-0 after:left-0" href="mailto:ludovic@crealab.ca">Ludovic Morin</a></p>
     </main>
   );
+}
+  
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Créalab - Accueil",
+    openGraph: {
+      title: "Créalab - Accueil",
+      images: ["/images/og-image.jpg"],
+    },
+  };
 }
