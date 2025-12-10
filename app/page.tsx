@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 export default function Page(){
   return (
     <main>
       <section className="flex flex-col items-center justify-center h-screen">
         <div className="flex flex-row items-center mr-12">
-          <img src="logo.webp" alt="" className="w-[3rem] lg:w-[4rem]" />
+          <Image src="/logo.webp" height={48} width={48} alt="" className="w-[3rem] lg:w-[4rem]" />
           <div className="ml-6">
             <h1 className="text-xl lg:text-4xl font-bold">Créalab</h1>
             <p className="text-md lg:text-lg">Midi informatique à la camaradière</p>

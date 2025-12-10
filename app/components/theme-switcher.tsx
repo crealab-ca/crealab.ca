@@ -4,6 +4,7 @@ import styles from "./switch.module.css";
 import { memo, useEffect, useState } from "react";
 
 declare global {
+  // eslint-disable-next-line no-var
   var updateDOM: () => void;
 }
 
@@ -69,7 +70,9 @@ const Switch = () => {
     updateDOM = window.updateDOM;
     /** Sync the tabs */
     addEventListener("storage", (e: StorageEvent): void => {
-      e.key === STORAGE_KEY && setMode(e.newValue as ColorSchemePreference);
+      if (e.key === STORAGE_KEY) {
+        setMode(e.newValue as ColorSchemePreference);
+      }
     });
   }, []);
 
@@ -92,13 +95,15 @@ const Switch = () => {
   );
 };
 
-const Script = memo(() => (
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')`,
-    }}
-  />
-));
+const Script = memo(function Script() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `(${NoFOUCScript.toString()})('${STORAGE_KEY}')`,
+      }}
+    />
+  );
+});
 
 /**
  * This component applies classes and transitions.
