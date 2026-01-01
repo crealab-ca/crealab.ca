@@ -42,7 +42,7 @@ export function getAllblog(): Post[] {
   return blog;
 }
 
-export function getAllProjects(): Projects[] {
+export function getAllProject(): Projects[] {
   const slugs = getProjectSlugs();
   const projects = slugs
     .map((slug) => getProjectByUrl(slug))
