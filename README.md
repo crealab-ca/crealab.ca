@@ -1,3 +1,3 @@
 Website
 
--# I need to make a README, *maybe...*
+I need to make a README, *maybe...*
